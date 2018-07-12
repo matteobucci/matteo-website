@@ -1,5 +1,8 @@
 ### Generated html files ###
 html/
+dev/*.html
+dev/**/*.html
+!dev/pages/**
 
 ### Node ###
 # Logs
