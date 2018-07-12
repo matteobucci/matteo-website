@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    {% block customHead %} {% endblock %}
+
+    {% if lang == "en" %}
+        {% include "partials/metadata-en.njk" %}
+    {% endif %}
+    {% if lang == "it" %}
+        {% include "partials/metadata-it.njk" %}
+    {% endif %}
+
+    {% include "partials/common-metadata.njk" %}
+    {% include "partials/language.njk" %}
+    {% include "partials/favicons.njk" %}
+    {% include "partials/common-css.njk" %}
+</head>
+
+<body id="page-top">
+
+{% include "partials/lateralmenu.njk" %}
+
+{% block content %} {% endblock %}
+
+{% include "partials/endscripts.njk" %}
+
+</body>
+
+</html>

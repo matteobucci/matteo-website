@@ -1,0 +1,243 @@
+{% extends "base.njk" %}
+{% set lang = "it" %}
+
+{% block customHead %}
+<title>Matteo Bucci</title>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid p-0">
+
+  <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+    <div class="my-auto">
+      <h1 class="mb-0">Matteo
+        <span class="text-primary">Bucci</span>
+      </h1>
+      <div class="subheading mb-5">Torino · Bologna · Urbino ·
+        <a href="mailto:name@email.com">matteo.bucci.1995@gmail.com</a>
+      </div>
+      <img class="cover-pic" src="../img/cover.png">
+      <p class="mb-5">Computer engineer. Focused on building great software with a simple and clean approach.</p>
+      <ul class="list-inline list-social-icons mb-0 ">
+        <li class="list-inline-item">
+          <a href="https://www.facebook.com/matteobucci95">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.linkedin.com/in/matteobucci">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/matteobucci/">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.instagram.com/matteobucci995/">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column hideme" id="experience">
+    <div class="my-auto">
+      <h2 class="mb-5">Experience & Education</h2>
+
+      <div class="resume-item d-flex flex-column flex-md-row mb-5">
+        <div class="resume-content mr-auto">
+          <h3 class="mb-0">Co-Founder <a href="https://the-roommate.com/">RoomMate</a></h3>
+          <div class="subheading mb-3"><span class="fa fa fa-star"></span> RoomMate Srls</div>
+          <p>The days when living togher with other people were a mess are over! Now, with Roommate, you are able to define and organize every aspect of living toghether.</p>
+          <p>RoomMate is and Android and iOS app that let you manage expenses, bills, chores and todo other than look for any service related to your house.</p>
+          <p>I started RoomMate in the May of 2017 and I've developed the Android application, the website and all the app-related backend. We are currently located in Bologna, we're we are part of an incubation program by AlmaCube of the University of Bologna.</p>
+        </div>
+        <div class="resume-date text-md-right">
+          <span class="text-primary">May 2017 - Present</span>
+        </div>
+      </div>
+
+      <div class="resume-item d-flex flex-column flex-md-row mb-5">
+        <div class="resume-content mr-auto">
+          <h3 class="mb-0 ">Master Degree Student</h3>
+          <div class="subheading mb-3"><span class="fa fa-mortar-board"></span> Politecnico di Torino</div>
+          <p>I'm completing the second part of my accademic career in Turin in the course of Computer Engeneering (taught in English). I'm specializing in Software Developement beacause I'd like to have a comprehensive knowledge of the subject.</p>
+        </div>
+        <div class="resume-date text-md-right">
+          <span class="text-primary">October 2017 - Present</span>
+        </div>
+      </div>
+
+      <div class="resume-item d-flex flex-column flex-md-row mb-5 ">
+        <div class="resume-content mr-auto">
+          <h3 class="mb-0">Computer Engineering Degree</h3>
+          <div class="subheading mb-3"><span class="fa fa-mortar-board"></span> University of Bologna</div>
+          <p>Bachelor degree in computer engineering degree (110L/110). We've mastered both the high and the low level side of a computer, beginning with the electronical part and continuing with the logic one.
+            We've also covered the basic concept behind an operationg system, the main protocol used for communications and the main algorithms. Finally we've studied the software developing, covering both the main principles that the tools that can be used.</p>
+        </div>
+        <div class="resume-date text-md-right">
+          <span class="text-primary">September 2014 - October 2017</span>
+        </div>
+      </div>
+
+      <div class="resume-item d-flex flex-column flex-md-row">
+        <div class="resume-content mr-auto">
+          <h3 class="mb-0">Android Developer</h3>
+
+          <div class="subheading mb-3"> <span class="fa fa-tv"></span> Mobimentum</div>
+          <p>Worked as a trainee at Mobimentum, a young and dynamic company which its main focus was app developing and general services. In two month I had different duties that range from developing from scratch an Android Application and writing test for an internal platform. I had also the opportunity to work on and maintain an Android application of a startup.</p>
+        </div>
+        <div class="resume-date text-md-right">
+          <span class="text-primary">February 2017 - May 2017</span>
+        </div>
+      </div>
+
+      <div class="resume-item d-flex flex-column flex-md-row">
+        <div class="resume-content mr-auto">
+          <h3 class="mb-0">Android Application - <a href="https://play.google.com/store/apps/details?id=com.matteobucci.barzelletteacaso&hl=it">Barzellette a caso</a></h3>
+          <div class="subheading mb-3"><span class="fa fa-tv"></span> Play store</div>
+          <p>I developed during my spare time an Android application about jokes. Doing so, I've been able to learn the main concept behind Android developing, databases, software management and much more. As I encountered new topic during my studies, I applied them in this application that I used as a workbench. Doing so, I successively added online capabilities, management of likes and of a remote database.</p>
+        </div>
+        <div class="resume-date text-md-right">
+          <span class="text-primary">2016</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column hideme" id="skills">
+    <div class="my-auto">
+      <h2 class="mb-5">Skills</h2>
+
+      <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+      <ul class="list-inline list-icons">
+        <li class="list-inline-item" data-toggle="tooltip" title="HTML 5">
+          <i class="devicons devicons-html5"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="CSS">
+          <i class="devicons devicons-css3"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Javascript development">
+          <i class="devicons devicons-javascript"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Google Cloud Platform">
+          <i class="devicons devicons-google-cloud-platform"></i>
+        </li>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Bootstrap">
+          <i class="devicons devicons-bootstrap"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Wordpress">
+          <i class="devicons devicons-wordpress"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Android development (Java and Kotlin)">
+          <i class="devicons devicons-android"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Java development">
+          <i class="devicons devicons-java"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Linux">
+          <i class="devicons devicons-linux"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Git and Github">
+          <i class="devicons devicons-git"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="SQL and SQLite">
+          <i class="devicons devicons-sqllite"></i>
+        </li>
+        <li class="list-inline-item" data-toggle="tooltip" title="Firebase platform">
+          <i class="devicons devicons-firebase"></i>
+        </li>
+
+      </ul>
+
+      <div class="subheading mb-3">Development's principles</div>
+      <ul class="fa-ul mb-0">
+        <li>
+          <i class="fa-li fa fa-check"></i>
+          Mobile native applications</li>
+        <li>
+          <i class="fa-li fa fa-check"></i>
+          Well structured, design pattern oriented code</li>
+        <li>
+          <i class="fa-li fa fa-check"></i>
+          Lean approach with fast iterations</li>
+        <li>
+          <i class="fa-li fa fa-check"></i>
+          Agile Development &amp; Scrum</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column hideme" id="interests">
+    <div class="my-auto">
+      <h2 class="mb-5">Interests</h2>
+      <p>After playing football for 15 years, now I love sports that allow me to challenge myself and feel the nature. Amatorial runner, I love winter because skiing is one the sport that I like more.</p>
+      <p class="mb-0">I really love travel even if time is one the precious resources that is always lacking.</p>
+      <p class="mb-0">If you know any films or books that describe a far, even distopic, but plausible world, please contact me immediatly :)</p>
+    </div>
+  </section>
+
+
+  <section class="resume-section contact-section p-3 p-lg-5 d-flex flex-column hideme" id="contact-me">
+    <div class="my-auto">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+          <div class="form-area">
+            <form role="form" id="contact" name="contact" method="post" action="#">
+              <br style="clear:both">
+              <h3 style="margin-bottom: 25px; text-align: center;">Contact me  :)</h3>
+              <div class="form-group">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+              </div>
+
+              <textarea class="form-control" type="textarea" name="message" id="message" placeholder="Message" form="contact" maxlength="1000" rows="7" onInput="checkLength()" required></textarea>
+              <span class="help-block"><p id="characterLeft" class="help-block ">0/1000</p></span>
+
+              <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+
+
+            </form>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md6" id="success-field"></div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+
+{% endblock %}
