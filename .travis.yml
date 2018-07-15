@@ -1,7 +1,13 @@
-git sudo: false
 language: node_js
+
 node_js:
-  - "node"
+- '--lts'
+
+os:
+- linux
+- osx
+
 install: npm install
+
 script:
   - gulp default
