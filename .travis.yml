@@ -7,6 +7,8 @@ os:
 install: npm install
 script:
 - gulp default
+- ls -l
+- ls html -l
 deploy:
   skip_cleanup: true
   provider: gcs
