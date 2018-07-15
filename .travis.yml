@@ -8,6 +8,7 @@ install: npm install
 script:
 - gulp default
 deploy:
+  skip_cleanup: true
   provider: gcs
   access_key_id: GOOGPXNXJNYZOYFH2WIWPYA5
   secret_access_key:
