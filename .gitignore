@@ -1,5 +1,6 @@
 ### Generated html files ###
 html/
+dev/lib
 dev/*.html
 dev/**/*.html
 !dev/pages/**

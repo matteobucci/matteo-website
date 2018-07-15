@@ -9,7 +9,7 @@ var concat = require('gulp-concat');                    //Concat multiple files 
 var size = require('gulp-size');                        //Print the size of the file
 var nunjucksRender = require('gulp-nunjucks-render');   //Templating for webpages
 var htmlmin = require('gulp-htmlmin');                  //Minimizer of html
-var htmlPrettify = require('gulp-html-prettify');       //Prettifier of html
+var htmlbeautify = require('gulp-html-beautify');
 var print = require('gulp-print').default;            //Print files
 
 //Move all pictures from a dev folder to the public forlder after optimizing them
@@ -118,13 +118,16 @@ gulp.task('browserSync', function() {
 
 //Templating library
 gulp.task('nunjucks', function() {
+
+  var options = {indentSize: 2};
+
   // Gets .html and .nunjucks files in pages
   return gulp.src('dev/pages/**/*.+(html|njk)')
   // Renders template with nunjucks
     .pipe(nunjucksRender({
       path: ['dev/templates']
     }))                                         //Render the pages
-    .pipe(htmlPrettify())                       //Indent them
+    .pipe(htmlbeautify(options))                   //Indent them
     .pipe(gulp.dest('dev'))                     //Copy them on dev
     .pipe(htmlmin({collapseWhitespace: true}))  //Minimize them
     .pipe(print())
