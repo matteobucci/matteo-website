@@ -105,7 +105,7 @@ gulp.task('copy', function() {
 });
 
 // Run everything
-gulp.task('default', ['images', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['nunjucks', 'images', 'minify-css', 'minify-js', 'copy']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {

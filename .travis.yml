@@ -1,11 +1,7 @@
-git ssudo:          false
-language:      node_js
+git sudo: false
+language: node_js
 node_js:
   - "node"
-install:       npm install
+install: npm install
 script:
-  - npm test
-  - gulp
-cache:
-  directories:
-    - node_modules
+  - gulp default
