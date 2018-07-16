@@ -4,13 +4,12 @@ node_js:
 os:
 - linux
 - osx
-install: npm install
+install:
+  - npm install -g firebase-tools
+  - npm install
 script:
 - gulp default
 - ls html
-deploy:
-  provider: firebase
-  token:
-    secure: df02Tk9nxWuLZJ82p+RKf+C/qy0uB6l4WKF1fU/i58k7GeQwITuGOtOFUumtkNGiWt1xX4Aj+5r5h7xPqS1WL9hbueAOZ21AIA2CYTpH8kIHdKoD7cmOTooC42GlqSuDOAkX0CDrxQzqSgg5eL6iJ1d8Z5hWdC12GqFA6qEJ/JP+0O89BGVsowJdMZ/DodyXLuDdyKL2xsCiBrbfQp61QaCxUOIY8bx7huyUr9brjgWpzQc+gDYw+8kFFhS2OsZW9kTYKxQT8QjtyJXQOgg5ZNz/1gkL9Ne6dUWD+jhUXgcWE2XxJPFJvHNOSaRzHV/lj+73s9gNbrgv8qbLCpJcheosG86auag/A1aj2aZJ6AjVuvXHGZIj9Xe5EEE90GE6SD6aJNYSb5Q6iEIyZJtMoYVuOGrU4XAxgvIMdIRiLhZRuisfGfJJe2ycXB06AFeR0/13CzwuKtCbLOidDPkSTvbOu3Lt/nRWGz8hnGBBNZ69d8gJ7oATZkGm9stTaSbpkJHpGZBxAHaB+n9amsWWGLvBF/ErvxjCVYV+TPEQcyfy3pP0HDspcXmv4Zv7Naw1f26d0KDnW4hdlXN6NoEtXLN8bSX9VoQIt2nADMmTevW4PYtdkT7AN/4gpsqQOQ/VpAUUGy+TyER3BOX+orzIuP0wknue5p0p5y2vd4ZUj90=
-  project: matteo-bucci
-  skip_cleanup: true
+
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
