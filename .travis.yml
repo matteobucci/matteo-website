@@ -9,13 +9,9 @@ script:
 - gulp default
 - ls html
 deploy:
-  provider: gcs
-  access_key_id: GOOGPXNXJNYZOYFH2WIWPYA5
-  secret_access_key:
-    secure: FP/+2Uh3dZ88TFz8b7FfNOUk8Oj5j0NEPs5pCD/gityjHDEwdxWtx3l1sPQeSQoV1CAw4cSkTTjxXVOulnzRYE/CSpeWDA10c0v9q8mrUz66rF6B8CI4BC1XEMFd2FzEnzWS8rr6oDawFZUo8PK7DPN/NoZgy4roKuGSPhTwCCn6+ZBNif3MYhz3930cRPV/tFMflXOF0TCKWVzc88o2egCCB0HNUA1Pi8jhjnRPgLXZmhyxvlohi8XBhIHvlhSjeAH+kW36MotFNH9ADHGWSs5d7f9ksxugxyRLErvN8mjAPXUzbZ1RgAQBrxqgmD9DxcqQk0gq3MFPBU3y1+6/p/J2d1+l4y6nwdtJcywB3A6HngaEAsXxAP7Xb/D//ejQkHDzzG94F2S0cAkwQ65CmnsPFSah9pX1+SLFdtu0zqBon59lBWv6Zh18TJpbe4QTu8HEIpQS0TX37s9QT9X3So1SYz8SFmmhaNp4A9Av4FqjIeolQq9A4aCboQB6TxjUALf/fnzvDVDFdUdAFAboN61OfpELrSUfGmHFQ4HBt4k2//2FCI3o+HIb21QHOrllTxX7SK4uXCg5S2qs8MpHDO1M5gUpom4N308WuDz4YMhLRJmEhrEld18VvHUoVJlLpH1IbniswNTbQYIh/2MhpWkSupIM0BVumk26bISmQD8=
-  bucket: www.matteobucci.it
-  local-dir: html
+  provider: firebase
+  token:
+    secure: Rsmy78VAz49JDqZvdpV/Uz7FGAQUegMLXGbrZujDysUXtrSDFkYha4LrlDsmmU2do1oQwG809gVz3pzGEK+MZ+M8QMU8oNj0CZ4ohf6wZyDPH0T8XnbKIOY4mg2QyMYMs7C/Ne1yHQaclme2+JGjAmZodZgYcIqDX2zikRQ+/V7nBEH1974yHdgA1dq6Vr2aH8UdGOPU5FvkI+DiXlTzJH+x5OKIvhy4WNaAqWi/2hIxdnPD2TSduXTt2vFNO98lReiZLDhu+O6Hmmmq9iqo9u20PDzYPc77gv1ybgPGXGDRffspZ8DbT9TbTBff20+Qb5mENdfTb9ronTlfBU+k+j0J2caVeXURy5v7jIhcynCWUG7veUjQtJpvxN/dgezy8DTCTEmOTpsFeH7JH07B/Oh+7HKF3UDpJMv5sbM69g2EmjkIPkfWAcxXNH4yGF/PK1S7b8PjLBLJcDJ2lRMgllRKsG6fmfiZkQj2rhhH2w6uD6qUU5D/SoFbphyuhV3DLGHaEOI8zUccdkv3vxBVlq3//Q2zHuKpTAsK4AXM09oSHvubhoAZVTTXRbE0qATPnb7KDPiek3PblqlJJN5OGQ2TEE7ESMxwjBV7RC23qXzQBvUXu05xclaX0GuEqCTQXxnrYp1zMbsHuCCWKN3NQKDA4Cv+QUzUnSQ1dER2L+E=
+  project: "matteo-bucci"
   skip_cleanup: true
-  acl: public-read
-  on:
-    repo: matteobucci/matteo-website
+  local-dir: html
