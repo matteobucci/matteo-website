@@ -11,6 +11,8 @@ var nunjucksRender = require('gulp-nunjucks-render');   //Templating for webpage
 var htmlmin = require('gulp-htmlmin');                  //Minimizer of html
 var htmlbeautify = require('gulp-html-beautify');
 var print = require('gulp-print').default;            //Print files
+var l10n = require('gulp-l10n');
+
 
 //Move all pictures from a dev folder to the public forlder after optimizing them
 gulp.task('images', function() {
@@ -134,10 +136,38 @@ gulp.task('nunjucks', function() {
     .pipe(gulp.dest('html'))                    //Copy them on html
 });
 
+gulp.task('load-locales', function () {
+  return gulp.src('./dev/locales/*.json')
+    .pipe(l10n.setLocales({
+      native: 'en',
+      enforce: 'warn'
+    }));
+});
+
+gulp.task('localize', ['load-locales'], function () {
+  return gulp.src(['dev/**/*.html', '!dev/pages/**/*.html', '!dev/it/**/*.html'])
+    .pipe(l10n())
+    .pipe(gulp.dest('./dev/'))
+});
+
+var opts = {
+  natives: 'en',
+  elements: ['title', 'p', 'h1', 'a'],
+  attributes: ['alt', 'title'],
+  directives: 'translate=yes',
+  attributeSetter: 'translate-attrs'
+};
+
+gulp.task('extract-locales', function () {
+  return gulp.src(['dev/**/*.html', '!dev/pages/**/*.html', '!dev/it/**/*.html'])
+    .pipe(l10n.extract(opts))
+    .pipe(gulp.dest('dev/locales'));
+});
+
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'nunjucks', 'images', 'minify-css', 'minify-js'], function() {
+gulp.task('dev', ['browserSync', 'nunjucks', 'images', 'minify-css', 'minify-js', 'extract-locales', 'localize'], function() {
   // Reloads the browser whenever HTML or JS files change
-  gulp.watch('dev/pages/**/*.html', ['nunjucks']);
+  gulp.watch('dev/pages/**/*.html', ['nunjucks', 'extract-locales', 'localize']);
   gulp.watch('dev/templates/**/*.njk', ['nunjucks']);
   gulp.watch('dev/**/*.html', browserSync.reload);
   gulp.watch('dev/js/**/*.js', browserSync.reload);
