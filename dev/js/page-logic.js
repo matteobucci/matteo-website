@@ -118,7 +118,7 @@ function changeLanguage(){
   if(path.includes("it")){
     window.location.pathname = ""
   }else{
-    window.location.pathname = "it"
+    window.location.pathname = "it/"
   }
 
 }
