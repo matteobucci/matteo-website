@@ -167,3 +167,12 @@ a:hover, a:focus, a:active {
 {
   opacity:0;
 }
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: #AA3939;
+  border-color: #AA3939;
+}
