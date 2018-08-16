@@ -106,6 +106,11 @@ gulp.task('copy', function(done) {
     .pipe(gulp.dest('html/lib/font-awesome'))
     .pipe(gulp.dest('dev/lib/font-awesome'));
 
+  gulp.src(['dev/**/*.html', '!dev/pages/**/*.html'])
+    .pipe(htmlmin({collapseWhitespace: true}))  //Minimize them
+    .pipe(print())
+    .pipe(gulp.dest('html'))                    //Copy them on html
+
   done();
 });
 
@@ -137,9 +142,6 @@ gulp.task('nunjucks', function() {
     }))                                         //Render the pages
    // .pipe(htmlbeautify(options))                   //Indent them
     .pipe(gulp.dest('dev'))                     //Copy them on dev
-    .pipe(htmlmin({collapseWhitespace: true}))  //Minimize them
-    .pipe(print())
-    .pipe(gulp.dest('html'))                    //Copy them on html
 });
 
 gulp.task('load-locales', function () {
@@ -185,4 +187,4 @@ gulp.task('dev', gulp.parallel('images', 'minify-css', 'minify-js', gulp.series(
 }));
 
 // Run everything
-gulp.task('default', gulp.parallel('nunjucks', 'images', 'minify-css', 'minify-js', 'copy'));
+gulp.task('default', gulp.series('nunjucks', 'images', 'minify-css',  'minify-js','extract-locales', 'localize', 'assets', 'copy'));
