@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+var gulp = require('gulp-v4');
 var browserSync = require('browser-sync').create();     //Allow realtime viewing the changes
 var cleanCSS = require('gulp-clean-css');               //Minify css
 var rename = require("gulp-rename");                    //Rename files
@@ -50,19 +50,20 @@ gulp.task('assets', function(){
   var files = [
     'dev/favicon.ico',
     'dev/**/*.json',
+    '!dev/locales',
     'dev/**/*.xml',
     'dev/**/*.php',
-    "dev/.htaccess",
+   // "dev/.htaccess",
     "dev/manifest.json",
     "dev/browserconfig.xml"
   ];
-  gulp.src(files, { dot: true })
+  return gulp.src(files, { dot: true })
     .pipe(print())
     .pipe(gulp.dest('html'));
 });
 
 // Copy lib libraries from /node_modules into /lib
-gulp.task('copy', function() {
+gulp.task('copy', function(done) {
 
   // jQuery Easing
   gulp.src([
@@ -104,10 +105,9 @@ gulp.task('copy', function() {
   ])
     .pipe(gulp.dest('html/lib/font-awesome'))
     .pipe(gulp.dest('dev/lib/font-awesome'));
-});
 
-// Run everything
-gulp.task('default', ['nunjucks', 'images', 'minify-css', 'minify-js', 'copy']);
+  done();
+});
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
@@ -116,6 +116,12 @@ gulp.task('browserSync', function() {
       baseDir: 'dev/'
     }
   })
+});
+
+// Reload browserSync
+gulp.task('reload', function(done) {
+  browserSync.reload();
+  done()
 });
 
 //Templating library
@@ -129,7 +135,7 @@ gulp.task('nunjucks', function() {
     .pipe(nunjucksRender({
       path: ['dev/templates']
     }))                                         //Render the pages
-    .pipe(htmlbeautify(options))                   //Indent them
+   // .pipe(htmlbeautify(options))                   //Indent them
     .pipe(gulp.dest('dev'))                     //Copy them on dev
     .pipe(htmlmin({collapseWhitespace: true}))  //Minimize them
     .pipe(print())
@@ -138,39 +144,45 @@ gulp.task('nunjucks', function() {
 
 gulp.task('load-locales', function () {
   return gulp.src('./dev/locales/*.json')
+    .pipe(print())
     .pipe(l10n.setLocales({
       native: 'en',
       enforce: 'warn'
     }));
 });
 
-gulp.task('localize', ['load-locales'], function () {
+gulp.task('localize', gulp.series('load-locales', function () {
   return gulp.src(['dev/**/*.html', '!dev/pages/**/*.html', '!dev/it/**/*.html'])
+    .pipe(print())
     .pipe(l10n())
     .pipe(gulp.dest('./dev/'))
-});
+}));
 
 var opts = {
   natives: 'en',
-  elements: ['title', 'p', 'h1', 'a'],
-  attributes: ['alt', 'title'],
-  directives: 'translate=yes',
+  //elements: ['title', 'p', 'h1', 'a'],
+  attributes: ['alt', 'title', 'placeholder'],
+  cancelers: 'translate=no',
   attributeSetter: 'translate-attrs'
 };
 
 gulp.task('extract-locales', function () {
   return gulp.src(['dev/**/*.html', '!dev/pages/**/*.html', '!dev/it/**/*.html'])
+    .pipe(print())
     .pipe(l10n.extract(opts))
     .pipe(gulp.dest('dev/locales'));
 });
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'nunjucks', 'images', 'minify-css', 'minify-js', 'extract-locales', 'localize'], function() {
+gulp.task('dev', gulp.parallel('images', 'minify-css', 'minify-js', gulp.series('nunjucks', 'extract-locales', 'localize', 'browserSync'), function() {
   // Reloads the browser whenever HTML or JS files change
-  gulp.watch('dev/pages/**/*.html', ['nunjucks', 'extract-locales', 'localize']);
-  gulp.watch('dev/templates/**/*.njk', ['nunjucks']);
-  gulp.watch('dev/**/*.html', browserSync.reload);
-  gulp.watch('dev/js/**/*.js', browserSync.reload);
-  gulp.watch('dev/css/**/*.css', browserSync.reload);
-  gulp.watch('dev/img/**/*', browserSync.reload);
-});
+  gulp.watch('dev/pages/**/*.html', gulp.series('nunjucks', 'extract-locales', 'localize'));
+  gulp.watch('dev/templates/**/*.njk', gulp.series('nunjucks'));
+  gulp.watch('dev/**/*.html', gulp.series('reload'));
+  gulp.watch('dev/js/**/*.js', gulp.series('reload'));
+  gulp.watch('dev/css/**/*.css', gulp.series('reload'));
+  gulp.watch('dev/img/**/*', gulp.series('reload'));
+}));
+
+// Run everything
+gulp.task('default', gulp.parallel('nunjucks', 'images', 'minify-css', 'minify-js', 'copy'));

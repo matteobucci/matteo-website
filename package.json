@@ -6,6 +6,7 @@
     "dependencies": {
         "bootstrap": "^4.1.2",
         "devicons": "^1.8.0",
+        "gulp-l10n": "git+https://github.com/matteobucci/gulp-l10n.git",
         "jquery": "3.3.1",
         "jquery.easing": "^1.4.1",
         "simple-line-icons": "^2.4.1"
@@ -13,14 +14,13 @@
     "devDependencies": {
         "browser-sync": "^2.24.5",
         "font-awesome": "^4.7.0",
-        "gulp": "^3.9.1",
         "gulp-clean-css": "^3.9.4",
         "gulp-concat": "^2.6.1",
+        "gulp-debug": "^4.0.0",
         "gulp-header": "^2.0.5",
         "gulp-html-beautify": "1.0.1",
         "gulp-htmlmin": "^4.0.0",
         "gulp-imagemin": "^4.1.0",
-        "gulp-l10n": "^1.2.1",
         "gulp-less": "^4.0.1",
         "gulp-nunjucks-render": "^2.2.2",
         "gulp-print": "^5.0.0",
@@ -28,6 +28,7 @@
         "gulp-size": "^3.0.0",
         "gulp-strip-debug": "^3.0.0",
         "gulp-uglify": "^3.0.0",
+        "gulp-v4": "^4.0.0-alpha.5",
         "natives": "^1.1.3"
     }
 }

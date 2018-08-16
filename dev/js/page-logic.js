@@ -110,3 +110,15 @@ $("#contact").submit(function(e) {
 
   return true; // avoid to execute the actual submit of the form.
 });
+
+function changeLanguage(){
+
+  var path = window.location.pathname
+
+  if(path.includes("it")){
+    window.location.pathname = ""
+  }else{
+    window.location.pathname = "it"
+  }
+
+}
